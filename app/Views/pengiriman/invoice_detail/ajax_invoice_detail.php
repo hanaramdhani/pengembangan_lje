@@ -1,0 +1,56 @@
+<?php
+if (isset($act) && $act == 'edit' && $modal) {
+?>
+    <input type="hidden" id="key-update" name="key_nomor" value="<?= $edit_data->nomor ?>">
+
+    <!--  Kolom No Tagihan  -->
+    <div class="form-group row">
+        <label for="val_no_invoice" class="col-sm-2 col-form-label">No Invoice</label>
+
+        <div class="col-sm-10">
+            <input class="form-control data-dt" id="val_no_invoice" name="val_no_invoice" value="<?= $edit_data->no_invoice ?>">
+        </div>
+
+    </div>
+    <!--  End Kolom No Tagihan  -->
+
+    <!--  Kolom No Pengiriman  -->
+    <div class="form-group row">
+        <label for="val_no_pengiriman" class="col-sm-2 col-form-label">No Pengiriman</label>
+        <div class="col-sm-10">
+
+            <input class="form-control data-dt" id="val_no_pengiriman" name="val_no_pengiriman" value="<?= $edit_data->no_pengiriman ?>">
+
+        </div>
+    </div>
+    <!--  End Kolom No Pengiriman  -->
+
+    <!--  Kolom Keterangan  -->
+    <div class="form-group row">
+        <label for="val_keterangan" class="col-sm-2 col-form-label">Keterangan</label>
+        <div class="col-sm-10">
+            <textarea id="val_keterangan" rows="10" name="val_keterangan" class="form-control"><?= $edit_data->keterangan ?></textarea>
+        </div>
+    </div>
+    <!--  End Kolom Keterangan -->
+
+
+    <!--  Kolom Status -->
+    <div class="form-group row">
+        <div class="col-sm-2">
+            <label for="val_status">Status</label>
+        </div>
+        <div class="col-sm-2" id="radio-aktif">
+            <p><input type='radio' name="val_status" value="1" <?= ($edit_data->status == '1') ? 'checked' : '' ?> /> Belum Ditagih</p>
+        </div>
+        <div class="col-sm-2" id="radio-aktif1">
+            <p><input type='radio' name="val_status" value="0" <?= ($edit_data->status == '0') ? 'checked' : '' ?> /> Sudah Ditagih</p>
+        </div>
+    </div>
+    <!-- End Kolom Status -->
+<?php
+} else {
+    echo view('errors/html/error_404');
+}
+
+?>
