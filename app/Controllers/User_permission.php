@@ -56,7 +56,9 @@ class User_permission extends BaseController
         print_r($_POST);
         echo "</pre>";
 
-        $this->user->update_data($_POST['update']);
+       $this->user->update_data($_POST['update']);
+        // return view('/setting/index', $this);
+
 
 
         // dd($this->request->getVar());

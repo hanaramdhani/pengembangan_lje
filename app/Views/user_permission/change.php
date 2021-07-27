@@ -8,7 +8,7 @@
         <tr class="text-center">
             <th>ID</th>
             <th>NAMA TABLE</th>
-            <th>VIEW <input type="checkbox" id="cb-view"></th>
+            <th>VIEW <input type="checkbox" id="cb-view" class="head-view"></th>
             <th>ADD <input type="checkbox" id="cb-add"></th>
             <th>EDIT <input type="checkbox" id="cb-edit"></th>
             <th>KODE GROUP</th>
@@ -34,13 +34,13 @@
                     </button> -->
                 </td>
                 <td> <input type="text" name="update[<?= $value['table_name'] ?>][v_add]" id="<?= $value['id'] ?>-add"
-                        class="test" style="width: 30px;" value=" <?= $value['v_add'];  ?>">
+                        class="test2" style="width: 30px;" value=" <?= $value['v_add'];  ?>">
                     <input value="<?= $value['v_add']; ?>" data-key="<?= $value['id'] ?>-add"
                         class="selected-add slct-add chk-box" <?= $value['v_add'] == 1 ? 'checked' : '' ?>
                         type="checkbox" id="add">
                 </td>
                 <td> <input type="text" name="update[<?= $value['table_name'] ?>][v_edit]" id="<?= $value['id'] ?>-edit"
-                        class="test" style="width:30px;" value="<?= $value['v_edit'];  ?>">
+                        class="test3" style="width:30px;" value="<?= $value['v_edit'];  ?>">
                     <input value="<?= $value['v_edit']; ?>" data-key="<?= $value['id'] ?>-edit"
                         class="selected-edit slct-edit chk-box" <?= $value['v_edit'] == 1 ? 'checked' : '' ?> id="edit"
                         type="checkbox">
@@ -74,63 +74,47 @@ $('.chk-box').click(function() {
     }
 })
 
-
-
-
-
-// if ($('.1').val() != 1) {
-//     $('#view').prop('checked', false);
-// } else {
-//     $('#view').prop('checked', true);
-// };
-
-// if ($('.2').val() == 1) {
-//     $('#add').prop('checked', true);
-// } else {
-//     $('#add').prop('checked', false);
-// };
-
-// if ($('.3').val() == 1) {
-//     $('#edit').prop('checked', true);
-// } else {
-//     $('#edit').prop('checked', false);
-// };
-
-
-// document.ready(function() {
-// first_load_table();
-// })
-
-// function first_load_table() {
-//     $('#cb-view').prop('checked', true);
-//     $('.selected-view').prop('checked', true);
-// }
+// $('.head-view').click(function() {
+//     var data = $(this).data('key');
+//     if ($(this).prop('checked') == true) {
+//         $('#' + data).val(1);
+//     } else {
+//         $('#' + data).val(0);
+//     }
+// });
 
 $('#cb-view').click(function() {
     if ($('#cb-view').prop('checked') == true) {
         $('.selected-view').prop('checked', true);
         $('.selected-view').addClass('.slct-view');
+        $('.test1').val(1);
     } else {
         $('.selected-view').prop('checked', false);
         $('.selected-view').removeClass('.slct-view');
+        $('.test1').val(0);
+
     }
 });
 $('#cb-add').click(function() {
     if ($('#cb-add').prop('checked') == true) {
         $('.selected-add').prop('checked', true);
         $('.selected-add').addClass('.slct-add');
+        $('.test2').val(1);
     } else {
         $('.selected-add').prop('checked', false);
         $('.selected-add').removeClass('.slct-add');
+        $('.test2').val(0);
     }
 });
 $('#cb-edit').click(function() {
     if ($('#cb-edit').prop('checked') == true) {
         $('.selected-edit').prop('checked', true);
         $('.selected-edit').addClass('.slct-edit');
+        $('.test3').val(1);
     } else {
         $('.selected-edit').prop('checked', false);
         $('.selected-edit').removeClass('.slct-edit');
+        $('.test3').val(0);
     }
 });
 </script>
