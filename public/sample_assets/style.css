@@ -1,0 +1,32 @@
+.btn_tambah button {
+    /* position: absolute; */
+    font-family: "Roboto", sans-serif;
+    width: 156px;
+    height: 35px;
+    left: 0px;
+    top: 706px;
+    background: #009A50;
+    border-radius: 3px;
+    color: #ffff;
+    right: 0;
+}
+
+.btn-simpan {
+    display: grid;
+    place-items: center;
+}
+
+.btn-simpan button {
+    /* position: absolute; */
+    width: 156px;
+    height: 35px;
+    background: #066BC8;
+    border-radius: 3px;
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    display: inline-block;
+    color: #FFFFFF;
+}
