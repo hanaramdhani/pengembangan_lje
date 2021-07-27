@@ -207,28 +207,6 @@ $("#data-tampil").on('click', '.edit-master', function() {
 });
 
 function edit_pengiriman_detail(key_update, kd_layanan, kd_kota_asal, kd_kota_tujuan, kd_jenis) {
-    // console.log(kd_layanan);
-    // $.ajax({
-    //     type: 'POST',
-    //     url: `<?= base_url() ?>/ajax_load/edit/pengiriman_detail/pengiriman/` + key_update + `/true`,
-    //     success: function(r) {
-    //         alert('ss')
-    //         $('#m-crud-title').text('Edit Detail Pengiriman');
-    //         $('#m-crud-key').text(key_update);
-    //         $('#m-crud-act').text('edit');
-    //         $('#m-crud-page').text('pengiriman_detail');
-    //         $('#m-crud-jenis').text('master');
-    //         $('#m-container-crud').html(r);
-    //         $('#modal-crud').modal('show');
-    //         $('#hrg_volume').change(function() {
-    //             volume();
-
-    //         });
-
-    //     }
-
-    // })
-
     $.ajax({
         type: 'POST',
         url: `<?= base_url() ?>/api/get_min/${kd_kota_asal}/${kd_kota_tujuan}/${kd_jenis}/${kd_layanan}/${key_update}`,
