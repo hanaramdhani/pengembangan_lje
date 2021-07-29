@@ -21,7 +21,7 @@ class User_permission_model extends Model
 
 
     protected $table = 'm_user_permission';
-    protected $allowedFields = ['v_view', 'v_add', 'v_edit'];
+    protected $allowedFields = ['v_view', 'v_add', 'v_edit', 'kd_group'];
     
     // public function __construct()
     // {
@@ -44,9 +44,6 @@ class User_permission_model extends Model
         } else {
             return true;
         }
-
-
-
     }
 
     // function update_data($where, $dt, $table) {

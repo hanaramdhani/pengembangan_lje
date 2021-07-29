@@ -44,55 +44,16 @@ class User_permission extends BaseController
         }
         
         return view('/user_permission/change', $data);
-        //pakai model
-        // $data['user_permission'] = $this->user->findAll();
-        // return view('/user_permission/change', $data);
-
-        // $data['user_permission'] = $this->user->where('kd_group' == "$_GET[kd_group]");
     }
 
     function update($id) {
-        echo "<pre>";
-        print_r($_POST);
-        echo "</pre>";
+        // echo "<pre>";
+        // print_r($_POST);
+        // echo "</pre>";
 
        $this->user->update_data($_POST['update']);
         // return view('/setting/index', $this);
 
-
-
-        // dd($this->request->getVar());
-
-
-        // $this->user->save([
-        //     'id' => $id,
-        //     // $table_name = $this->input->post('table_name');
-        //     'v_view' => $_POST['v_view'],
-        //     'v_add' => $_POST['v_add'],
-        //     'v_edit' => $_POST['v_edit']
-        //     // $kd_group = array();
-        // ]);
-
-        // return view('/user_permission/change');
-
-
-        // $id = $this->input->post('id');
-        // // $table_name = $this->input->post('table_name');
-        // $v_view = $this->input->post('v_view');
-        // $v_add = $this->input->post('v_add');
-        // $v_edit = $this->input->post('v_edit');
-        // // $kd_group = array();
-
-        // $dt = array(
-        //     'v_view' => $v_view,
-        //     'v_add' => $v_add,
-        //     'v_edit' => $v_edit
-        // );
-        
-        // $where = array(
-        //     'id' => $id
-        // );
-        // $this->User_permission_model->update_data($where,$dt, 'result');
     }
 
 	

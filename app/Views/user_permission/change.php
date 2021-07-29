@@ -21,7 +21,7 @@
             <form action="/User_permission/update/<?= $value['id']; ?>" ; id=" frm-user" method="POST">
                 <?= csrf_field(); ?>
                 <td class="text-center"><?= $value['id']; ?></td>
-                <td class="text-left"><?= $value['table_name']; ?></td>
+                <td class="text-left"><?= $value['table']; ?></td>
                 <td>
                     <input id="<?= $value['id'] ?>-view" class="test1"
                         name="update[<?= $value['table_name'] ?>][v_view]" type="text" style="width: 30px;"

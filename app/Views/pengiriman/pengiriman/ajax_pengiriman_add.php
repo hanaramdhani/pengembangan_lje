@@ -186,22 +186,20 @@ foreach ($get_ready_ongkir as $key => $value) {
                                         </select>
                                     </div>
                                     <div class="form-group row">
-                                        <label style="display: none;" class="col-sm-7 col-form-label">Diskon</label>
+                                        <label class="col-sm-7 col-form-label">Diskon</label>
                                         <div class="col-sm-10">
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <input style="display: none;" type="text" min="0"
-                                                        class="form-control data data-dt" id="val_diskon_t"
-                                                        oninput="Check(this)" param="val_diskon_t" maxlength="3"
-                                                        max="99" name="val_diskon" readonly
+                                                    <input type="text" min="0" class="form-control data data-dt"
+                                                        id="val_diskon_t" oninput="Check(this)" param="val_diskon_t"
+                                                        maxlength="3" max="99" name="val_diskon" readonly
                                                         placeholder="Masukkan Diskon" onkeyup="total()" value="0">
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <button style="display: none;" id="persen_master"
-                                                        class="btn btn-secondary w-80">%</button>
+                                                    <button id="persen_master" class="btn btn-secondary w-80">%</button>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <button style="display: none;" id="rupiah_master"
+                                                    <button id="rupiah_master"
                                                         class="btn btn-secondary w-80">Rp</button>
                                                 </div>
 
@@ -504,7 +502,7 @@ foreach ($get_ready_ongkir as $key => $value) {
                                                 <span class="input-group-text">Rp </span>
                                             </div>
                                             <input type="text" class="form-control data-dt number-format" value="0"
-                                                id="val_subtotal" readonly>
+                                                id="val_subtotal" param="val_subtotal" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -513,8 +511,8 @@ foreach ($get_ready_ongkir as $key => $value) {
                                         <label class="form-label">Diskon</label>
                                         <div class="input-group">
                                             <input type="text" min="0" maxlength="" oninput="Check(this)"
-                                                class="form-control allow-numeric" id="diskon" onkeyup="total()"
-                                                value="0" readonly placeholder="Diskon"
+                                                class="form-control allow-numeric data-dt" param="val_diskon"
+                                                id="diskon" onkeyup="total()" value="0" readonly placeholder="Diskon"
                                                 aria-label="Recipient's username with two button addons">
                                             <button class="btn btn-outline-secondary" id="persen"
                                                 type="button">%</button>
@@ -532,8 +530,8 @@ foreach ($get_ready_ongkir as $key => $value) {
                                             <div class="input-group-append">
                                                 <span class="input-group-text">Rp</span>
                                             </div>
-                                            <input type="text" class="form-control data-dt" value="0" id="val_total"
-                                                name="val_total" value="" readonly>
+                                            <input type="text" param="val_total" class="form-control data-dt" value="0"
+                                                id="val_total" name="val_total" value="" readonly>
                                         </div>
                                     </div>
                                 </div>
@@ -919,7 +917,6 @@ foreach ($get_ready_ongkir as $key => $value) {
             }
 
             $(document).ready(function() {
-
                 get_rp();
             })
             $(document).ready(function() {
@@ -1011,14 +1008,14 @@ foreach ($get_ready_ongkir as $key => $value) {
             $('#persen_master').click(function() {
                 $('#val_diskon_t').attr('maxlength', '3');
                 $('#val_diskon_t').attr('readonly', false);
-                $('#persen_master').attr('class', 'btn btn-success w-80 form-control')
-                $('#rupiah_master').attr('class', 'btn btn-secondary w-80 form-control')
+                $('#persen_master').attr('class', 'btn btn-success')
+                $('#rupiah_master').attr('class', 'btn btn-outline-secondary')
             });
             $('#rupiah_master').click(function() {
                 $('#val_diskon_t').attr('maxlength', '10');
                 $('#val_diskon_t').attr('readonly', false);
-                $('#rupiah_master').attr('class', 'btn btn-success w-80 form-control')
-                $('#persen_master').attr('class', 'btn btn-secondary w-90 form-control')
+                $('#rupiah_master').attr('class', 'btn btn-success')
+                $('#persen_master').attr('class', 'btn btn-outline-secondary')
             });
 
             // detail
@@ -1077,7 +1074,7 @@ foreach ($get_ready_ongkir as $key => $value) {
                 reload_tbl_tmp_dt();
                 $(this).attr('data-row', '-1');
                 $(this).attr('data-aksi', 'tambah');
-                $('#val-kd-jenis').val('');
+                // $('#val-kd-jenis').val('');
                 $('#val_panjang').val('');
                 $('#val_jumlah_berat').val('');
                 $('#val_lebar').val('');

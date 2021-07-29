@@ -921,7 +921,7 @@ $('.delete').on('click', function() {
                                     <div class="form-group">
                                         <label class="form-label">Subtotal</label>
                                         <input type="text" class="form-control data-dt" id="val_subtotal"
-                                            param="val_subtotal" value="" readonly>
+                                            name="val_subtotal" param="val_subtotal" value="" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label">Diskon</label>

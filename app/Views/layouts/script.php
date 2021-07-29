@@ -1,32 +1,32 @@
 <script type="text/javascript">
-    function currencyFormat(num) {
-        return (num
-            .toFixed(0)
-            .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
-            );
-    }
+function currencyFormat(num) {
+    return (num
+        .toFixed(0)
+        .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
+    );
+}
 
-    function resultberat() {
-        var berat = document.getElementById('val_jumlah_berat').value;
-        var hrgberat = document.getElementById('val_harga_berat').value;
-        var minimum = document.getElementById('min').value;
-        var ber_min = parseFloat(hrgberat) * parseFloat(minimum);
-        var rberat = parseFloat(hrgberat) * Math.abs(parseFloat(berat));
-        var rminim = parseFloat(minimum) * Math.abs(parseFloat(berat));
+function resultberat() {
+    var berat = document.getElementById('val_jumlah_berat').value;
+    var hrgberat = document.getElementById('val_harga_berat').value;
+    var minimum = document.getElementById('min').value;
+    var ber_min = parseFloat(hrgberat) * parseFloat(minimum);
+    var rberat = parseFloat(hrgberat) * Math.abs(parseFloat(berat));
+    var rminim = parseFloat(minimum) * Math.abs(parseFloat(berat));
 
-        if (berat != 0) {
-            if (parseFloat(berat) <= parseFloat(minimum)) {
-                if (!isNaN(ber_min)) {
-                    document.getElementById('harga_berat').value = ber_min;
-                }
-            } else {
-                if (!isNaN(rberat)) {
-                    document.getElementById('harga_berat').value = rberat;
-                }
+    if (berat != 0) {
+        if (parseFloat(berat) <= parseFloat(minimum)) {
+            if (!isNaN(ber_min)) {
+                document.getElementById('harga_berat').value = ber_min;
             }
         } else {
-            document.getElementById('harga_berat').value = 0;
+            if (!isNaN(rberat)) {
+                document.getElementById('harga_berat').value = rberat;
+            }
         }
+    } else {
+        document.getElementById('harga_berat').value = 0;
+    }
     // volume();
     // resultvolume();
     // resultsubtotal();
@@ -94,7 +94,7 @@ function total() {
     resultvolume();
     resultsubtotal();
     var diskon_persen = (document.getElementById('discount-val').value != '') ? document.getElementById('discount-val')
-    .value : 0;
+        .value : 0;
     var subtotal = document.getElementById('val_subtotal').value.split('.').join('');
     var diskon = document.getElementById('diskon').value;
     var totaldiskon = document.getElementById('val_diskon_t').value;
@@ -212,12 +212,12 @@ function total1() {
     // }
 
     // function volume() {
-        var panjang = document.getElementById('val_panjang').value;
-        var lebar = document.getElementById('val_lebar').value;
-        var tinggi = document.getElementById('val_tinggi').value;
-        var rs = parseFloat(panjang) * parseFloat(lebar) * parseFloat(tinggi);
-        if (!isNaN(rs)) {
-            document.getElementById('hrg_volume').value = rs.toFixed(3);
+    var panjang = document.getElementById('val_panjang').value;
+    var lebar = document.getElementById('val_lebar').value;
+    var tinggi = document.getElementById('val_tinggi').value;
+    var rs = parseFloat(panjang) * parseFloat(lebar) * parseFloat(tinggi);
+    if (!isNaN(rs)) {
+        document.getElementById('hrg_volume').value = rs.toFixed(3);
         // resultvolume();
     }
     // }
@@ -246,32 +246,33 @@ function total1() {
             // resultsubtotal();
         }
     }
-    
+
 
     // }
 
     // function resultsubtotal() {
-        var hargakoli = document.getElementById('harga_koli').value.split('.').join('');
-        var jumlahitem = document.getElementById('jumlah-item').value;
-        var hargaberat = document.getElementById('harga_berat').value;
-        var hargavolume = document.getElementById('harga_volume').value;
-        var koli_item = parseFloat(hargakoli) * parseFloat(jumlahitem);
-        var result = parseFloat(hargaberat) + parseFloat(hargavolume) + parseFloat(koli_item);
+    var hargakoli = document.getElementById('harga_koli').value.split('.').join('');
+    var jumlahitem = document.getElementById('jumlah-item').value;
+    var hargaberat = document.getElementById('harga_berat').value;
+    var hargavolume = document.getElementById('harga_volume').value;
+    var koli_item = parseFloat(hargakoli) * parseFloat(jumlahitem);
+    var result = parseFloat(hargaberat) + parseFloat(hargavolume) + parseFloat(koli_item);
 
-        if (!isNaN(result)) {
-            document.getElementById('val_subtotal').value = currencyFormat(result);
+    if (!isNaN(result)) {
+        document.getElementById('val_subtotal').value = currencyFormat(result);
         // total();
     }
     // }
 
 
     // function total() {
-        var diskon_persen = (document.getElementById('discount-val').value != '') ? document.getElementById(
+    var diskon_persen = (document.getElementById('discount-val').value != '') ? document.getElementById(
             'discount-val')
         .value : 0;
-        var subtotal = document.getElementById('val_subtotal').value.split('.').join('');
-        var diskon = (document.getElementById('diskon').value != '') ? (document.getElementById('diskon').value).split('.').join('') : 0;
-        var totaldiskon = document.getElementById('val_diskon_t').value;
+    var subtotal = document.getElementById('val_subtotal').value.split('.').join('');
+    var diskon = (document.getElementById('diskon').value != '') ? (document.getElementById('diskon').value).split('.')
+        .join('') : 0;
+    var totaldiskon = document.getElementById('val_diskon_t').value;
 
     // alert(diskon);
     //diskon 0, for db
@@ -368,6 +369,4 @@ function swal2_confirm(link) {
         }
     })
 }
-
-
 </script>
