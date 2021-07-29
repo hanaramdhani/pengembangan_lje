@@ -24,7 +24,7 @@
                 <td class="text-left"><?= $value['table']; ?></td>
                 <td>
                     <input id="<?= $value['id'] ?>-view" class="test1"
-                        name="update[<?= $value['table_name'] ?>][v_view]" type="text" style="width: 30px;"
+                        name="update[<?= $value['table_name'] ?>][v_view]" type="hidden" style="width: 30px;"
                         value="<?= $value['v_view']  ?>">
                     <input class="selected-view slct-view chk-box" data-key="<?= $value['id'] ?>-view"
                         value="<?= $value['v_view']; ?>" <?= $value['v_view'] == 1 ? 'checked' : ''?> id="view"
@@ -33,36 +33,27 @@
                         <i class="fa <?= $value['v_view'] == 1 ? 'fa-check-circle' : 'fa-ban' ?>"></i>
                     </button> -->
                 </td>
-                <td> <input type="text" name="update[<?= $value['table_name'] ?>][v_add]" id="<?= $value['id'] ?>-add"
+                <td> <input type="hidden" name="update[<?= $value['table_name'] ?>][v_add]" id="<?= $value['id'] ?>-add"
                         class="test2" style="width: 30px;" value=" <?= $value['v_add'];  ?>">
                     <input value="<?= $value['v_add']; ?>" data-key="<?= $value['id'] ?>-add"
                         class="selected-add slct-add chk-box" <?= $value['v_add'] == 1 ? 'checked' : '' ?>
                         type="checkbox" id="add">
                 </td>
-                <td> <input type="text" name="update[<?= $value['table_name'] ?>][v_edit]" id="<?= $value['id'] ?>-edit"
-                        class="test3" style="width:30px;" value="<?= $value['v_edit'];  ?>">
+                <td> <input type="hidden" name="update[<?= $value['table_name'] ?>][v_edit]"
+                        id="<?= $value['id'] ?>-edit" class="test3" style="width:30px;"
+                        value="<?= $value['v_edit'];  ?>">
                     <input value="<?= $value['v_edit']; ?>" data-key="<?= $value['id'] ?>-edit"
                         class="selected-edit slct-edit chk-box" <?= $value['v_edit'] == 1 ? 'checked' : '' ?> id="edit"
                         type="checkbox">
                 </td>
-                <td> <?= $value['kd_group']; ?>
+                <td> <input type="hidden" name="val_kd_group" style="width: 30px;" value="<?= $_GET['kd_group']; ?>">
+                    <?= $value['kd_group']; ?>
                 </td>
                 <?php endforeach; ?>
         </tr>
     </tbody>
 </table>
 <script type="text/javascript">
-// update[<?=$value['table_name'] ?>][v_view]
-// $('.chk-box').click(function() {
-//     if ($(this).prop('checked') == true) {
-//         $(this).val() == 1;
-//     } else {
-//         $(this).val() == 0;
-//     }
-// });
-
-
-
 //nilai
 $('.chk-box').click(function() {
     // alert('test');
@@ -74,14 +65,7 @@ $('.chk-box').click(function() {
     }
 })
 
-// $('.head-view').click(function() {
-//     var data = $(this).data('key');
-//     if ($(this).prop('checked') == true) {
-//         $('#' + data).val(1);
-//     } else {
-//         $('#' + data).val(0);
-//     }
-// });
+
 
 $('#cb-view').click(function() {
     if ($('#cb-view').prop('checked') == true) {

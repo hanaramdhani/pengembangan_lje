@@ -1,7 +1,7 @@
 <?= $this->extend('layouts/template'); ?>
 <?= $this->section('content'); ?>
 
-<h1>Hello world</h1>
+<!-- <h1>Hello world</h1> -->
 
 <table class="table  table-bordered">
     <thead>

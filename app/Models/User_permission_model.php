@@ -17,24 +17,24 @@ class User_permission_model extends Model
     public $v_view;
     public $v_add;
     public $v_edit;
-    public $kd_group;
-
-
-    protected $table = 'm_user_permission';
-    protected $allowedFields = ['v_view', 'v_add', 'v_edit', 'kd_group'];
-    
+    // public $kd_group;
     // public function __construct()
     // {
     //     $this->load->database();
     // }
 
-    public function update_data($data)
-    {   
-        
+
+
+    protected $table = 'm_user_permission';
+    protected $allowedFields = ['v_view', 'v_add', 'v_edit', 'kd_group'];
+    
+    
+    public function update_data($data, $kd_group)
+    {    
         $this->db->transStart();
 
         foreach ($data as $key => $value) {
-            $this->db->table($this->table)->update($value, array('table_name' => $key));
+            $this->db->table($this->table)->update($value, array('table_name' => $key, 'kd_group' => $kd_group));
         }
 
         $this->db->transComplete();
